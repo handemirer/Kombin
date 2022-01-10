@@ -27,6 +27,7 @@ namespace Kombin.Controllers
         [AllowAnonymous]
         public IActionResult Index(User user)
         {
+            user.Role = 1;
             userManager.Add(user);
             return RedirectToAction("Index", "Home");
             //return View();

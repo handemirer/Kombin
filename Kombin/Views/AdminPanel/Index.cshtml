@@ -1,0 +1,17 @@
+﻿@{
+    ViewData["Title"] = "Admin Panel";
+}
+<div class="container">
+    <div class="row">
+        <div class="col-lg-3">
+            <div class="row">
+                <div class="col-sm-12">
+                    @await Component.InvokeAsync("AdminPanelMenu")
+
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-9">
+            ana sayfa
+        </div>
+    </div>

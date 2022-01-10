@@ -42,6 +42,11 @@ namespace BussinessLayer.Concrete
             return _categoryDal.ListAll();
         }
 
+        public List<Category> GetListByMainCategory(int MainCategory)
+        {
+            return _categoryDal.ListAll(x => x.MainCategory == MainCategory);
+        }
+
         public void Update(Category c)
         {
             _categoryDal.Update(c);

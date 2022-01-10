@@ -1,7 +1,9 @@
 ﻿using DataAccessLayer.Concrete;
 using EntityLayer.Concrete;
 using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +12,7 @@ using System.Threading.Tasks;
 
 namespace Kombin.Controllers
 {
+
     public class LoginController : Controller
     {
         [AllowAnonymous]
@@ -30,8 +33,16 @@ namespace Kombin.Controllers
 
                 var claims = new List<Claim>
                 {
-                    new Claim(ClaimTypes.Name,user.UserUsername)
+                    new Claim(ClaimTypes.Name,user.UserUsername),
+                    new Claim(ClaimTypes.Role,"Admin"),
+                    new Claim("userid".ToString(),user.UserId.ToString()),
                 };
+
+
+                HttpContext.Session.SetString("userid", dataValue.UserId.ToString());
+
+
+
                 var userIdentity = new ClaimsIdentity(claims, "a");
                 ClaimsPrincipal principal = new ClaimsPrincipal(userIdentity);
                 await HttpContext.SignInAsync(principal);
@@ -42,6 +53,15 @@ namespace Kombin.Controllers
 
                 return View();
             }
+        }
+
+        [AllowAnonymous]
+        public async Task<IActionResult> Logout()
+        {
+            await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+            HttpContext.Session.Clear();
+            return View();
+
         }
     }
 }

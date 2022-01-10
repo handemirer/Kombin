@@ -1,0 +1,62 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@using EntityLayer.Concrete
+@model List<Category>
+
+@{
+    ViewData["Title"] = "Admin Panel";
+}
+<div class="container">
+    <div class="row">
+        <div class="col-lg-3">
+            <div class="row">
+                <div class="col-sm-12">
+                    @await Component.InvokeAsync("AdminPanelMenu")
+
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-9">
+            <link herf="~lib\bootstrap\dist\css\bootstrap.css" rel="stylesheet" />
+            <button type="button" class="btn btn-primary" onclick="location.href='@Url.Action("AddCategory", "AdminPanel")'">Kategori Ekle</button>
+
+            <br />
+            <br />
+            <table class="table table-bordered">
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Ana Kategori</th>
+                    <th>Status</th>
+                    <th>Delete</th>
+
+                </tr>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.CategoryId</td>
+                        <td>@item.CategoryName</td>
+                        @if (@item.MainCategory == 0)
+                        {
+                            <td>Erkek</td>
+                        }
+                        else
+                        {
+                            <td>Kadın</td>
+                        }
+                        <td>@item.CategoryStatus</td>
+                        <td>
+                            <a herf="#" class="btn btn-danger">Sil</a>
+                        </td>
+
+                    </tr>
+                }
+            </table>
+
+        </div>
+    </div>
+
+

@@ -1,0 +1,16 @@
+﻿@using EntityLayer.Concrete
+@model List<Category>
+
+<link herf="~lib\bootstrap\dist\css\bootstrap.css" rel="stylesheet" />
+<div class="card">
+    <div class="card-header">
+        <h4>Menu</h4>
+    </div>
+    <div class="card-body">
+        <a class="text-dark" asp-area="" asp-controller="AdminPanel" asp-action="Index">Ana Sayfa</a><br />
+        <a class="text-dark" asp-area="" asp-controller="AdminPanel" asp-action="Categories">Kategoriler</a><br />
+        <a class="text-dark" asp-area="" asp-controller="AdminPanel" asp-action="Users">Kullanıcılar</a><br />
+        <a class="text-dark" asp-area="" asp-controller="AdminPanel" asp-action="Posts">Kombinler</a><br />
+    </div>
+</div>
+

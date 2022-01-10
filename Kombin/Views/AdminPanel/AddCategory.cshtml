@@ -1,0 +1,40 @@
+﻿
+
+
+@{
+    ViewData["Title"] = "Kategori Ekle";
+}
+<div class="container">
+    <div class="row">
+        <div class="col-lg-3">
+            <div class="row">
+                <div class="col-sm-12">
+                    @await Component.InvokeAsync("AdminPanelMenu")
+
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-9">
+            <form class="" method="post">
+                <div class="form-group">
+                    <label for="name">Kategory ismi</label>
+                    <input type="text" class="form-control" name="name" placeholder="Kategori ismi" required="" autofocus="" />
+
+                    <label for="formGroupExampleInput">Kategori seç</label>
+                    <select class="custom-select" name="MainCategory" required="">
+                        <option selected>Ana Kategori Seç</option>
+                        <option value=0>Erkek</option>
+                        <option value=1>Kadın</option>
+                    </select>
+
+
+                </div>
+                <br />
+                <button class="btn btn-lg btn-primary btn-block" type="submit">Ekle</button>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+

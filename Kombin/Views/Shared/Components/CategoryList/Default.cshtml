@@ -1,0 +1,17 @@
+﻿@using EntityLayer.Concrete
+@model List<Category>
+
+<link herf="~lib\bootstrap\dist\css\bootstrap.css" rel="stylesheet" />
+<div class="card">
+    <div class="card-header">
+        <h4>Kategoriler</h4>
+    </div>
+    <div class="card-body">
+        @foreach (var item in Model)
+        {
+            <a class="text-dark" asp-area="" asp-controller="Categories" asp-action="Index" asp-route-id=@item.CategoryId>@item.CategoryName</a>
+            <br />
+        }
+    </div>
+</div>
+

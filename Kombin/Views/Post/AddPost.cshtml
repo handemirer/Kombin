@@ -1,0 +1,40 @@
+﻿@using EntityLayer.Concrete
+@model List<Category>
+
+
+
+<form class="w-50" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label for="name">Kombin ismi</label>
+        <input type="text" class="form-control" name="name" placeholder="Kombin ismi" required="" autofocus="" />
+
+        <label for="defination">Kombin açıklaması</label>
+        <input type="text" class="form-control" name="defination" placeholder="Kombin açıklaması" required="" autofocus="" />
+
+        <label for="imageFile">Kombin Resmi Ekle</label>
+        <input type="file" class="form-control-file" name="imageFile" required="" />
+
+
+        <label for="formGroupExampleInput">Kategori seç</label>
+        <select class="custom-select" name="category" required="">
+            <option selected>Kategori Seç</option>
+            @foreach (var item in Model)
+            {
+                if (@item.MainCategory == 0)
+                {
+                    <option value="@item.CategoryId">Man - @item.CategoryName</option>
+                }
+                else
+                {
+                    <option value="@item.CategoryId">Woman - @item.CategoryName</option>
+                }
+            }
+
+        </select>
+
+
+
+    </div>
+    <br />
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Ekle</button>
+</form>

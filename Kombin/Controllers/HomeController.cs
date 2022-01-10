@@ -1,4 +1,8 @@
-﻿using Kombin.Models;
+﻿using BussinessLayer.Concrete;
+using DataAccessLayer.Concrete;
+using DataAccessLayer.EntityFramework;
+using Kombin.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -12,6 +16,7 @@ namespace Kombin.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        PostManager postManager = new PostManager(new EfPostRepository());
 
         public HomeController(ILogger<HomeController> logger)
         {
@@ -20,20 +25,35 @@ namespace Kombin.Controllers
 
         public IActionResult Index()
         {
+            /*
+            var userId = HttpContext.Session.GetString("userid");
+            if (userId != null)
+            {
+                Context context = new Context();
+                var loggedUser = context.Users.Find(Convert.ToInt32(userId));
+                ViewBag.loggedUserName = loggedUser.UserFullname;
+                ViewBag.loggedUserId = userId;
+            }
+            */
             return View();
         }
 
         public IActionResult Man()
         {
-            return View();
+
+            var posts = postManager.GetListWithMainCategory(0);
+            return View(posts);
+
         }
         public IActionResult Woman()
         {
-            return View();
+            var posts = postManager.GetListWithMainCategory(1);
+            return View(posts);
         }
         public IActionResult Explore()
         {
-            return View();
+            var posts = postManager.GetList();
+            return View(posts);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
