@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace Kombin.Controllers
@@ -28,6 +30,13 @@ namespace Kombin.Controllers
         public IActionResult Index(User user)
         {
             user.Role = 1;
+
+            using (var sha256provider = new SHA256CryptoServiceProvider())
+            {
+                var hash = sha256provider.ComputeHash(Encoding.UTF8.GetBytes(user.UserPassword));
+                user.UserPassword = BitConverter.ToString(hash).Replace("-", "");
+            }
+
             userManager.Add(user);
             return RedirectToAction("Index", "Home");
             //return View();

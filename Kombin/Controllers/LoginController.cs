@@ -5,9 +5,12 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
+using System.Security.Cryptography;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace Kombin.Controllers
@@ -25,6 +28,12 @@ namespace Kombin.Controllers
         [AllowAnonymous]
         public async Task<IActionResult> Index(User user)
         {
+            using (var sha256provider = new SHA256CryptoServiceProvider())
+            {
+                var hash = sha256provider.ComputeHash(Encoding.UTF8.GetBytes(user.UserPassword));
+                user.UserPassword = BitConverter.ToString(hash).Replace("-", "");
+            }
+
             Context context = new Context();
             var dataValue = context.Users.FirstOrDefault(x => x.UserUsername == user.UserUsername && x.UserPassword == user.UserPassword);
 
