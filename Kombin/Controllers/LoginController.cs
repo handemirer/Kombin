@@ -28,20 +28,18 @@ namespace Kombin.Controllers
             Context context = new Context();
             var dataValue = context.Users.FirstOrDefault(x => x.UserUsername == user.UserUsername && x.UserPassword == user.UserPassword);
 
+
             if (dataValue != null)
             {
 
                 var claims = new List<Claim>
                 {
                     new Claim(ClaimTypes.Name,user.UserUsername),
-                    new Claim(ClaimTypes.Role,"Admin"),
-                    new Claim("userid".ToString(),user.UserId.ToString()),
+                    new Claim(ClaimTypes.Role, "Admin"),
+                    new Claim("userid".ToString(),dataValue.UserId.ToString()),
                 };
 
-
                 HttpContext.Session.SetString("userid", dataValue.UserId.ToString());
-
-
 
                 var userIdentity = new ClaimsIdentity(claims, "a");
                 ClaimsPrincipal principal = new ClaimsPrincipal(userIdentity);
@@ -61,7 +59,6 @@ namespace Kombin.Controllers
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
             HttpContext.Session.Clear();
             return View();
-
         }
     }
 }

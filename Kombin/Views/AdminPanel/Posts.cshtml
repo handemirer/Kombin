@@ -1,0 +1,50 @@
+﻿@using EntityLayer.Concrete
+@model List<Post>
+
+@{
+    ViewData["Title"] = "Admin Panel";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-3">
+            <div class="row">
+                <div class="col-sm-12">
+                    @await Component.InvokeAsync("AdminPanelMenu")
+
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-9">
+            <table class="table table-bordered">
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Kombin Resmi</th>
+
+                    <th>Delete</th>
+
+                </tr>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.PostId</td>
+                        <td>@item.name</td>
+
+                        <td><a href="/imageFiles/@item.imageDestination">@item.name</a></td>
+
+
+                        <td>
+                            <button type="button" class="btn btn-danger" onclick="location.href='@Url.Action("DeletePost", "AdminPanel",new  {id=@item.PostId })'">Sil</button>
+
+                        </td>
+
+                    </tr>
+                }
+            </table>
+
+        </div>
+    </div>
+</div>
+
+

@@ -13,7 +13,7 @@ namespace BussinessLayer.Abstract
         void Delete(Post p);
         void Update(Post p);
         List<Post> GetList();
-        List<Post> GetListWithUser(User s);
+        List<Post> GetListWithUser(int userid);
         List<Post> GetListWithCategory(Category c);
         List<Post> GetListWithMainCategory(int mainCategory);
 

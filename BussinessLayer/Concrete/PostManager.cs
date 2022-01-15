@@ -9,6 +9,7 @@ using DataAccessLayer.Repositories;
 using DataAccessLayer.EntityFramework;
 using DataAccessLayer.Abstract;
 
+
 namespace BussinessLayer.Concrete
 {
     public class PostManager : IPostService
@@ -56,9 +57,9 @@ namespace BussinessLayer.Concrete
             return _postDal.ListAll(x => categoryidlist.Contains(x.categoryId));
         }
 
-        public List<Post> GetListWithUser(User s)
+        public List<Post> GetListWithUser(int userid)
         {
-            return _postDal.ListAll(x => x.userId == s.UserId);
+            return _postDal.ListAll(x => x.userId == userid);
         }
 
         public void Update(Post p)

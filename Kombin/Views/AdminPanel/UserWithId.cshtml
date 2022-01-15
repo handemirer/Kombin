@@ -1,0 +1,56 @@
+﻿
+@using EntityLayer.Concrete
+@model User
+
+@{
+    ViewData["Title"] = "Admin Panel";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-3">
+            <div class="row">
+                <div class="col-sm-12">
+                    @await Component.InvokeAsync("AdminPanelMenu")
+
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-9">
+            <link herf="~lib\bootstrap\dist\css\bootstrap.css" rel="stylesheet" />
+            <div>ID: @Model.UserId</div>
+            <div>Username: @Model.UserUsername</div>
+            <div>Fullname: @Model.UserFullname</div>
+            @if (@Model.Role == 0)
+            {
+                <div>Role: Admin</div>
+            }
+
+            else
+            {
+                <div>Role: Kullanıcı</div>
+            }
+            <br />
+
+            <form class="" method="post">
+                <div class="form-group">
+                    <select class="custom-select" name="role" required="">
+                        <option selected>Rolü Seç</option>
+                        <option value=0>Admin</option>
+                        <option value=1>Kullanıcı</option>
+                    </select>
+
+
+                </div>
+                <br />
+                <button class="btn btn-lg btn-primary btn-block" type="submit">Değişikliği Kaydet</button>
+            </form>
+            <br />
+
+            <button type="button" class="btn btn-lg btn-danger btn-block" onclick="location.href='@Url.Action("DeleteUser", "AdminPanel",new  {id=Model.UserId})'">Kullanıcıyı Sil</button>
+
+            </table>
+
+        </div>
+    </div>
+</div>

@@ -10,7 +10,6 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using DataAccessLayer.Concrete;
-
 namespace Kombin.Controllers
 {
     public class PostController : Controller
@@ -22,7 +21,12 @@ namespace Kombin.Controllers
 
         public IActionResult Index()
         {
-            //postlarını görünütülemek için
+            if (HttpContext.User.Identity.IsAuthenticated)
+            {
+                string user = HttpContext.User.FindFirst("userid").Value;
+                List<Post> posts = postManager.GetListWithUser(Convert.ToInt32(user));
+                return View(posts);
+            }
             return View();
         }
 
@@ -32,6 +36,12 @@ namespace Kombin.Controllers
             //postlarını görünütülemek için
             List<Category> categories = categoryManager.GetList();
             return View(categories);
+        }
+
+        public IActionResult DeletePost(int id)
+        {
+            postManager.Delete(postManager.GetById(id));
+            return RedirectToAction("Index", "Post");
         }
 
         [HttpPost]
@@ -48,7 +58,7 @@ namespace Kombin.Controllers
 
                 p.imageDestination = newImageName;
                 p.name = ad.name;
-                p.userId = Convert.ToInt32(HttpContext.Session.GetString("userid"));
+                p.userId = Convert.ToInt32(HttpContext.User.FindFirst("userid").Value);
                 p.categoryId = ad.category;
                 p.defination = ad.defination;
 

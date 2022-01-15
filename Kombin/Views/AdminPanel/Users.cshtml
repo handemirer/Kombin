@@ -1,0 +1,49 @@
+﻿@using EntityLayer.Concrete
+@model List<User>
+
+@{
+    ViewData["Title"] = "Admin Panel";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-3">
+            <div class="row">
+                <div class="col-sm-12">
+                    @await Component.InvokeAsync("AdminPanelMenu")
+
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-9">
+            <link herf="~lib\bootstrap\dist\css\bootstrap.css" rel="stylesheet" />
+            <table class="table table-bordered">
+                <tr>
+                    <th>ID</th>
+                    <th>Username</th>
+                    <th>Edit</th>
+                    <th>Sil</th>
+
+                </tr>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.UserId</td>
+                        <td>@item.UserUsername</td>
+                        <td>
+                            <button type="button" class="btn btn-warning" onclick="location.href='@Url.Action("UserWithId", "AdminPanel",new  {id=@item.UserId })'">Edit</button>
+
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-danger" onclick="location.href='@Url.Action("DeleteUser", "AdminPanel",new  {id=@item.UserId })'">Sil</button>
+                        </td>
+
+                    </tr>
+                }
+            </table>
+
+        </div>
+    </div>
+</div>
+
+

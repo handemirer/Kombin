@@ -12,7 +12,7 @@
         <input type="text" class="form-control" name="defination" placeholder="Kombin açıklaması" required="" autofocus="" />
 
         <label for="imageFile">Kombin Resmi Ekle</label>
-        <input type="file" class="form-control-file" name="imageFile" required="" />
+        <input type="file" class="form-control-file" id="document_attachment_doc" name="imageFile" required="" />
 
 
         <label for="formGroupExampleInput">Kategori seç</label>
@@ -38,3 +38,11 @@
     <br />
     <button class="btn btn-lg btn-primary btn-block" type="submit">Ekle</button>
 </form>
+
+<script>
+    const fileInput = document.getElementById("document_attachment_doc");
+
+    window.addEventListener('paste', e => {
+        fileInput.files = e.clipboardData.files;
+    });
+</script>

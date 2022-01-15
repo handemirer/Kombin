@@ -1,14 +1,10 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
-@using EntityLayer.Concrete
+﻿@using EntityLayer.Concrete
 @model List<Category>
 
 @{
     ViewData["Title"] = "Admin Panel";
 }
+
 <div class="container">
     <div class="row">
         <div class="col-lg-3">
@@ -49,7 +45,8 @@
                         }
                         <td>@item.CategoryStatus</td>
                         <td>
-                            <a herf="#" class="btn btn-danger">Sil</a>
+                            <button type="button" class="btn btn-danger" onclick="location.href='@Url.Action("DeleteCategory", "AdminPanel",new  {id=@item.CategoryId })'">Sil</button>
+
                         </td>
 
                     </tr>
@@ -58,5 +55,6 @@
 
         </div>
     </div>
+</div>
 
 

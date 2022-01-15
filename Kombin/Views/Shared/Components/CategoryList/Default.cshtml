@@ -9,7 +9,7 @@
     <div class="card-body">
         @foreach (var item in Model)
         {
-            <a class="text-dark" asp-area="" asp-controller="Categories" asp-action="Index" asp-route-id=@item.CategoryId>@item.CategoryName</a>
+            <a class="text-dark" asp-area="" asp-controller="Home" asp-action="Category" asp-route-id=@item.CategoryId>@item.CategoryName</a>
             <br />
         }
     </div>

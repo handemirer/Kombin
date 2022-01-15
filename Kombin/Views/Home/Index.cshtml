@@ -2,36 +2,207 @@
     ViewData["Title"] = "Kombin";
 }
 
-<table style="width:100%;">
-    <tr><td>Erkek Giyim Tarzları</td><td class="expand"><hr style="border-top: 1px solid #bfbfbf;"></td></tr>
-</table>
-<hr class="my-2">
-<div class="owl-item active" style="width: 205px; margin-right: 20px;">
-    <div class="item">
-        <div onclick="setLocation('/casual-tarzi-kombinler')" class="col-md-12 col-xs-12 p-0 tarz-item-dis">
-            <div class="tarz-item" style="padding:0px !important;">
-                <a title="Casual" href="/casual-tarzi-kombinler">
-                    <img alt="Casual" title="Casual" data-src="https://img.coulfate.com/images/thumbs/0010944.jpeg" style="margin-bottom:30px" src="https://img.coulfate.com/images/thumbs/0010944.jpeg" class=" ls-is-cached lazyloaded">
-                </a>
-                <div class="anasayfa-detail">
-                    <div class="filigran">
-                        <a title="Casual" href="/casual-tarzi-kombinler">KOMBİNLERİ GÖR</a>
-                    </div>
-                </div>
+
+
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link herf="~lib\bootstrap\dist\css\bootstrap.css" rel="stylesheet" />
+</head>
+<body>
+    <div>
+        <div class="container row" style="margin: 0px 0px 8px 0px ; padding: 0; ">
+            <div class="align-self-center">
+                Erkek Kombinleri
             </div>
-            <div class="item-detail">
-                <a title="Casual" href="/casual-tarzi-kombinler">
-                    <img alt="Kategori İçin Resim Casual" data-src="https://img.coulfate.com/images/thumbs/0000329-casual.svg" style="width:62%" src="https://img.coulfate.com/images/thumbs/0000329-casual.svg" class=" ls-is-cached lazyloaded">
-                    <div class="tarz-tag">
-                        <p>Hem şık hem rahat kıyafetler ile gündelik yaşamınızda da tarz sahibi olun. Casual tarzı erkek giyim kombinlerini inceleyin.</p>
-                    </div>
-                    <div class="detail">
-                        <div class="filigran">
-                            <span href="/casual-tarzi-kombinler">Kombinleri Gör</span>
-                        </div>
-                    </div>
-                </a>
+            <div class="align-self-center flex-grow-1 ">
+                <hr class="" style="margin:0px 16px 0px 16px;">
+            </div>
+            <div>
+                <a href="/Home/Man" type="button" class="btn btn-sm btn-outline-dark">Tümünü Gör</a>
             </div>
         </div>
+
+        <div class="owl-carousel owl-theme">
+            <a href='/Home/Category/1'>
+                <div class="card">
+                    <img src="https://img.coulfate.com/images/thumbs/0010944-450.jpeg">
+                    <img class="flex-grow-0" src="https://img.coulfate.com/images/thumbs/0000329-casual.svg">
+
+                </div>
+            </a>
+            <a href='/Home/Category/2'>
+                <div class="card">
+                    <img src="https://img.coulfate.com/images/thumbs/0010945-450.jpeg">
+                    <img class="flex-grow-0" src="https://img.coulfate.com/images/thumbs/0002118-business-casual.svg">
+
+                </div>
+            </a>
+            <a href='/Home/Category/3'>
+                <div class="card">
+                    <img src="https://img.coulfate.com/images/thumbs/0010946-450.jpeg">
+                    <img class="flex-grow-0" src="https://img.coulfate.com/images/thumbs/0002119-business.svg">
+
+                </div>
+            </a>
+            <a href='/Home/Category/4'>
+                <div class="card">
+                    <img src="https://img.coulfate.com/images/thumbs/0010947-450.jpeg">
+                    <img class="flex-grow-0" src="https://img.coulfate.com/images/thumbs/0000605-basic.svg">
+
+                </div>
+            </a>
+            <a href='/Home/Category/5'>
+                <div class="card">
+                    <img src="https://img.coulfate.com/images/thumbs/0010948-450.jpeg">
+                    <img class="flex-grow-0" src="https://img.coulfate.com/images/thumbs/0000340-street-style.svg">
+
+                </div>
+            </a>
+            <a href='/Home/Category/6'>
+                <div class="card">
+                    <img src="https://img.coulfate.com/images/thumbs/0010949-450.jpeg">
+                    <img class="flex-grow-0" src="https://img.coulfate.com/images/thumbs/0000335-man-in-black.svg">
+
+                </div>
+            </a>
+            <a href='/Home/Category/7'>
+                <div class="card">
+                    <img src="https://img.coulfate.com/images/thumbs/0010952-450.jpeg">
+                    <img class="flex-grow-0" src="https://img.coulfate.com/images/thumbs/0011037-outdoor.svg">
+                </div>
+            </a>
+            <a href='/Home/Category/8'>
+                <div class="card">
+                    <img src="https://img.coulfate.com/images/thumbs/0010951-450.jpeg">
+                    <img class="flex-grow-0" src="https://img.coulfate.com/images/thumbs/0000339-sportluxe.svg">
+                </div>
+            </a>
+            <a href='/Home/Category/9'>
+                <div class="card">
+                    <img src="https://img.coulfate.com/images/thumbs/0010950-450.jpeg">
+                    <img class="flex-grow-0" src="https://img.coulfate.com/images/thumbs/0006678-retro.svg">
+                </div>
+            </a>
+        </div>
+
     </div>
-</div>
+    <br />
+    <div>
+        <div class="container row" style="margin: 0px 0px 8px 0px ; padding: 0; ">
+            <div class="align-self-center">
+                Kadin Kombinleri
+            </div>
+            <div class="align-self-center flex-grow-1 ">
+                <hr class="" style="margin:0px 16px 0px 16px;">
+            </div>
+            <div>
+                <a href="/Home/Woman" type="button" class="btn btn-sm btn-outline-dark">Tümünü Gör</a>
+            </div>
+        </div>
+
+        <div class="owl-carousel owl-theme">
+            <a href='/Home/Category/10'>
+                <div class="card">
+                    <img alt="Casual" title="Casual" src="https://img.coulfate.com/images/thumbs/0023903-450.jpeg">
+                    <img alt="Kategori İçin Resim Casual" src="https://img.coulfate.com/images/thumbs/0023880-casual.svg">
+                </div>
+            </a>
+            <a href='/Home/Category/11'>
+                <div class="card">
+                    <img alt="Smart Casual" title="Smart Casual" src="https://img.coulfate.com/images/thumbs/0023878-450.jpeg">
+                    <img alt="Kategori İçin Resim Smart Casual" src="https://img.coulfate.com/images/thumbs/0023885-smart-casual.svg">
+                </div>
+            </a>
+
+            <a href='/Home/Category/12'>
+                <div class="card">
+                    <img alt="Business" title="Business" src="https://img.coulfate.com/images/thumbs/0023905-450.jpeg">
+                    <img alt="Kategori İçin Resim Business" src="https://img.coulfate.com/images/thumbs/0023881-business.svg">
+                </div>
+            </a>
+            <a href='/Home/Category/13'>
+                <div class="card">
+                    <img alt="Sokak Stili" title="Sokak Stili" src="https://img.coulfate.com/images/thumbs/0023906-450.jpeg">
+                    <img alt="Kategori İçin Resim Sokak Stili" src="https://img.coulfate.com/images/thumbs/0023886-sokak-stili.svg">
+                </div>
+            </a>
+            <a href='/Home/Category/14'>
+                <div class="card">
+                    <img alt="Spor Giyim" title="Spor Giyim" src="https://img.coulfate.com/images/thumbs/0025017-450.jpeg">
+                    <img alt="Kategori İçin Resim Spor Giyim" src="https://img.coulfate.com/images/thumbs/0025166-spor-giyim.svg">
+                </div>
+            </a>
+            <a href='/Home/Category/15'>
+                <div class="card">
+                    <img alt="Basic" title="Basic" src="https://img.coulfate.com/images/thumbs/0023907-450.jpeg">
+                    <img alt="Kategori İçin Resim Basic" src="https://img.coulfate.com/images/thumbs/0023882-basic.svg">
+                </div>
+            </a>
+            <a href='/Home/Category/16'>
+                <div class="card">
+                    <img alt="Minimalist" title="Minimalist" src="https://img.coulfate.com/images/thumbs/0023908-450.jpeg">
+                    <img alt="Kategori İçin Resim Minimalist" src="https://img.coulfate.com/images/thumbs/0023888-minimalist.svg">
+                </div>
+            </a>
+            <a href='/Home/Category/17'>
+                <div class="card">
+                    <img alt="Bohem" title="Bohem" src="https://img.coulfate.com/images/thumbs/0023909-450.jpeg">
+                    <img alt="Kategori İçin Resim Bohem" src="https://img.coulfate.com/images/thumbs/0023889-bohem.svg">
+                </div>
+            </a>
+            <a href='/Home/Category/18'>
+                <div class="card">
+                    <img alt="Tesettür" title="Tesettür" src="https://img.coulfate.com/images/thumbs/0023910-450.jpeg">
+                    <img alt="Kategori İçin Resim Tesettür" src="https://img.coulfate.com/images/thumbs/0023890-tesettur.svg">
+                </div>
+            </a>
+            <a href='/Home/Category/19'>
+                <div class="card">
+                    <img alt="Outdoor" title="Outdoor" src="https://img.coulfate.com/images/thumbs/0023911-450.jpeg">
+                    <img alt="Kategori İçin Resim Outdoor" src="https://img.coulfate.com/images/thumbs/0023883-outdoor.svg">
+                </div>
+            </a>
+            <a href='/Home/Category/20'>
+                <div class="card">
+                    <img alt="Vintage" title="Vintage" src="https://img.coulfate.com/images/thumbs/0023912-450.jpeg">
+                    <img alt="Kategori İçin Resim Vintage" src="https://img.coulfate.com/images/thumbs/0025167-vintage.svg">
+                </div>
+            </a>
+            <a href='/Home/Category/21'>
+                <div class="card">
+                    <img alt="Abiye" title="Abiye" src="https://img.coulfate.com/images/thumbs/0023913-450.jpeg">
+                    <img alt="Kategori İçin Resim Abiye" src="https://img.coulfate.com/images/thumbs/0023891-abiye.svg">
+                </div>
+            </a>
+
+        </div>
+
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+</body>
+</html>
+
+<script type="text/javascript">
+    $('.owl-carousel').owlCarousel({
+        loop: true,
+        margin: 10,
+        dots: false,
+        nav: false,
+        responsive: {
+            0: {
+                items: 1
+            },
+            600: {
+                items: 2
+            },
+            1000: {
+                items: 5
+            }
+        }
+    })
+</script>
